@@ -19,6 +19,9 @@ public class Main {
         userDao.saveUser("Misha", "Solovyov", (byte) 21);
         System.out.println("User с именем – Misha добавлен в базу данных");
         List<User> users = userDao.getAllUsers();
+        System.out.println("Вывод пользователей на экран:");
         users.forEach(System.out::println);
+        userDao.cleanUsersTable();
+        userDao.dropUsersTable();
     }
 }
