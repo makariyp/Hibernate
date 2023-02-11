@@ -18,6 +18,7 @@ public class Util {
     private final String PASSWORD = "root";
     private final String URL = "jdbc:mysql://localhost:3306/mysql";
     private final String DRIVER = "com.mysql.jdbc.Driver";
+    private SessionFactory sessionFactory;
 
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName(DRIVER);
@@ -25,6 +26,9 @@ public class Util {
         return connection;
     }
     public SessionFactory getSessionFactory() {
+        if (sessionFactory != null) {
+            return sessionFactory;
+        }
         Properties settings = new Properties();
         settings.put(Environment.DRIVER, DRIVER);
         settings.put(Environment.URL, URL);
@@ -42,6 +46,7 @@ public class Util {
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
 
-        return configuration.buildSessionFactory(serviceRegistry);
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        return sessionFactory;
     }
 }
