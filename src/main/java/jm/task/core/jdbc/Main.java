@@ -20,7 +20,5 @@ public class Main {
         System.out.println("User с именем – Misha добавлен в базу данных");
         List<User> users = userDao.getAllUsers();
         users.forEach(System.out::println);
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
     }
 }
