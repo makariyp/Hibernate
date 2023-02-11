@@ -8,20 +8,20 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userDao = new UserServiceImpl();
-        userDao.createUsersTable();
-        userDao.saveUser("Makar", "Petrov", (byte) 23);
+        UserService userService = new UserServiceImpl();
+        userService.createUsersTable();
+        userService.saveUser("Makar", "Petrov", (byte) 23);
         System.out.println("User с именем – Makar добавлен в базу данных");
-        userDao.saveUser("Aleksandra", "Petrova", (byte) 21);
+        userService.saveUser("Aleksandra", "Petrova", (byte) 21);
         System.out.println("User с именем – Aleksandra добавлен в базу данных");
-        userDao.saveUser("Egor", "Kogor", (byte) 23);
+        userService.saveUser("Egor", "Kogor", (byte) 23);
         System.out.println("User с именем – Egor добавлен в базу данных");
-        userDao.saveUser("Misha", "Solovyov", (byte) 21);
+        userService.saveUser("Misha", "Solovyov", (byte) 21);
         System.out.println("User с именем – Misha добавлен в базу данных");
-        List<User> users = userDao.getAllUsers();
+        List<User> users = userService.getAllUsers();
         System.out.println("Вывод пользователей на экран:");
         users.forEach(System.out::println);
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
     }
 }
