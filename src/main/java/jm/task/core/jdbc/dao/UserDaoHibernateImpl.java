@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    Util util = new Util();
+    private final Util util = new Util();
 
     public UserDaoHibernateImpl() {
 
