@@ -14,18 +14,18 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class Util {
-    private final String USER_NAME = "root";
-    private final String PASSWORD = "root";
-    private final String URL = "jdbc:mysql://localhost:3306/mysql";
-    private final String DRIVER = "com.mysql.jdbc.Driver";
-    private SessionFactory sessionFactory;
+    private static final String USER_NAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://localhost:3306/mysql";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static SessionFactory sessionFactory;
 
-    public Connection getConnection() throws SQLException, ClassNotFoundException {
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         return connection;
     }
-    public SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         if (sessionFactory != null) {
             return sessionFactory;
         }
